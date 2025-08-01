@@ -1,127 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RiseUpHindu – Under Maintenance</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RiseUpHindu - Counter HinduPhobia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        html,
-        body {
-            height: 100%;
-            overflow: hidden;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background-color: #0b2545;
+      font-family: 'Roboto', sans-serif;
+      color: #ffd700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        body {
-            background: #0a0a0a;
-            color: #cceeff;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-        }
+    .wrapper {
+      max-width: 800px;
+      width: 100%;
+      padding: 40px 20px;
+    }
 
-        .container {
-            max-width: 850px;
-            width: 100%;
-        }
+    .container {
+      background: linear-gradient(145deg, #081d3a, #132c4b);
+      padding: 30px 20px;
+      border: 4px solid #e63946;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      text-align: center;
+      position: relative;
+    }
 
-        h1 {
-            font-size: 1.8rem;
-            color: #33bbff;
-            margin-bottom: 5px;
-            text-shadow: 0 0 5px #0077cc;
-        }
+    .logo {
+      height: 100px;
+      margin-bottom: 20px;
+    }
 
-        h2 {
-            font-size: 1rem;
-            color: #66ccff;
-            margin-bottom: 15px;
-        }
+    h1 {
+      font-family: 'Merriweather', serif;
+      color: #ffa500;
+      font-size: 36px;
+      margin-bottom: 5px;
+    }
 
-        .spinner {
-            border: 5px solid #333;
-            border-top: 5px solid #33bbff;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
+    .creator-center {
+      font-size: 16px;
+      color: #ffaa33;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+    h2 {
+      color: #ffcc00;
+      font-size: 24px;
+      margin-top: 40px;
+    }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    p {
+      color: #eeeeee;
+      font-size: 18px;
+      margin: 10px 0 20px 0;
+    }
 
-        .message {
-            font-size: 0.85rem;
-            line-height: 1.5em;
-            margin-bottom: 12px;
-        }
+    .btn {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: #c1121f;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
 
-        iframe {
-            width: 100%;
-            max-width: 320px;
-            height: 180px;
-            border: none;
-            margin: 10px auto;
-        }
+    .btn:hover {
+      background-color: #ff4500;
+    }
 
-        .lang {
-            font-size: 0.75rem;
-            line-height: 1.4em;
-            margin-top: 10px;
-            color: #aaddff;
-        }
+    hr.decor {
+      border: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, #ffd700, #ff4500, #ffd700);
+      margin: 30px 0;
+    }
 
-        a {
-            color: #00ccff;
-            text-decoration: underline;
-        }
-    </style>
+    footer {
+      font-size: 14px;
+      color: #cccccc;
+      margin-top: 30px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .btn {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .logo {
+        height: 80px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
+  <div class="wrapper">
     <div class="container">
-        <h1>🙏 RiseUpHindu</h1>
-        <h2>🚧 Under Maintenance | क्षमा करें | ବିକାଶ ଅଧିନରେ</h2>
-        <div class="spinner"></div>
+      <img src="RiseUpHindu.png" alt="RiseUpHindu Logo" class="logo">
+      <h1>Welcome to RiseUpHindu</h1>
+      <div class="creator-center">~ Rocky</div>
 
-        <div class="message">
-            We're working on something divine. Website will be back soon.<br>
-            Meanwhile, watch this powerful video related to <strong>Mahavatar Narsimha</strong> 👇
-        </div>
+      <p>A Movement to Counter HinduPhobia<br>and Spread Awareness about Sanatan Dharma</p>
 
-        <iframe src="https://www.youtube-nocookie.com/embed/p7eE_dn9u4k?si=C0nWg2GHe0HrtBYF"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
-        </iframe><br>
-        <a href="https://in.bookmyshow.com/movies/cuttack/mahavatar-narsimha-kannada/ET00429289" target="_blank">
-            Mahavatar Narsimha – BookMyShow (Official)
-        </a>
+      <hr class="decor" />
 
-        <div class="lang">
-            वेबसाइट पर अभी कार्य चल रहा है, कृपया कुछ दिनों बाद पुनः आएं।<br>
-            ବେବସାଇଟ ବନାଉଥିବା ଅବସ୍ଥାରେ ଅଛି, ଦୟାକରି କିଛି ଦିନ ପରେ ଆସନ୍ତୁ।
-        </div>
+      <h2>Before You Begin</h2>
+      <p>Please support us by following our Instagram accounts:</p>
+      <a class="btn" href="https://www.instagram.com/realiology.c0m" target="_blank">Follow REALIOLOGY.C0M</a>
+      <a class="btn" href="https://www.instagram.com/realiology.py" target="_blank">Follow REALIOLOGY.PY</a>
+
+      <hr class="decor" />
+
+      <p>This website is created to defend and represent the truth of Hindu Dharma. We stand against misinformation, hatred, and Hinduphobia spread online or offline. We believe in peaceful awareness, scripture-based responses, and Sanatani unity.</p>
+
+      <a class="btn" href="about.html">Learn More About Us</a>
+      <a class="btn" href="home.html">Enter the Website</a>
+
+      <hr class="decor" />
+
+      <footer>
+        © 2025 RiseUpHindu | Powered by Realiology Movement
+      </footer>
     </div>
+  </div>
 
 </body>
-
 </html>
