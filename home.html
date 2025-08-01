@@ -9,23 +9,10 @@
         content="Join RiseUpHindu to explore and revive Sanatan Dharma with special focus on Jagannath culture. Discover sacred texts, Odia heritage, and our mission to restore cultural pride through truth, tech, and tradition." />
     <meta name="keywords"
         content="Sanatan Dharma, Hinduism, Jagannath Culture, Puri Temple, Odia Heritage, Vedic, Hindu culture, ancient India, Gurukul, Mahabharata, Ramayana, Bhagavad Gita, Indian history, cultural revival" />
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
-    <link rel="preload" href="11.jpg" as="image">
-    
-    <!-- Favicon and PWA manifest -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#111827">
-    
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- CSS with critical styles inlined -->
     <style>
         :root {
             --primary-color: #1e40af;
@@ -53,10 +40,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -186,7 +169,7 @@
             padding: 8rem 2rem 6rem;
             position: relative;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('11.jpg') center/cover no-repeat;
+                        url('https://source.unsplash.com/1600x900/?jagannath,puri') center/cover no-repeat;
             background-attachment: fixed;
         }
 
@@ -649,112 +632,6 @@
         .delay-7 { animation-delay: 1.4s; }
         .delay-8 { animation-delay: 1.6s; }
 
-        /* New Features */
-        /* Dark mode toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            z-index: 100;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-
-        /* Loading animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--background);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--primary-color);
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .loader-text {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            color: var(--text-color);
-            font-family: 'Noto Serif Devanagari', serif;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Image lazy loading */
-        img.lazy {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        img.lazy.loaded {
-            opacity: 1;
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .container {
@@ -871,12 +748,6 @@
 </head>
 
 <body>
-    <!-- Loading animation -->
-    <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
-        <div class="loader-text">जय जगन्नाथ</div>
-    </div>
-
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">RiseUpHindu</a>
@@ -888,7 +759,7 @@
                 <a href="#articles"><i class="fas fa-scroll"></i> Articles</a>
                 <a href="#join"><i class="fas fa-hands-helping"></i> Join Us</a>
                 <a href="disclaimer.html"><i class="fas fa-info-circle"></i> Disclaimer</a>
-                <a href="about_riseuphindu.html"><i class="fas fa-users"></i> About Us</a>
+                <a href="about.html"><i class="fas fa-users"></i> About Us</a>
             </div>
             <div class="hamburger" id="hamburger">☰</div>
         </div>
@@ -937,7 +808,7 @@
                     </p>
                 </div>
                 <div class="jagannath-feature-image">
-                    <img src="11.jpg" alt="Jagannath Puri Temple" loading="lazy" class="lazy">
+                    <img src="0.jpg" alt="Jagannath Puri Temple">
                 </div>
             </section>
 
@@ -1078,19 +949,19 @@
                 <h2>📚 Articles & Research</h2>
                 <ol class="article-list">
                     <li class="slide-in delay-1">
-                        <a href="aryan_invasion_myth.html">Aryan Invasion Theory - Myth or Reality?</a>
+                        <a href="article1.html">Aryan Invasion Theory - Myth or Reality?</a>
                     </li>
                     <li class="slide-in delay-2">
-                        <a href="sachi_ramayan_debunked.html">Debunking Sachi Ramayan</a>
+                        <a href="article2.html">Debunking Sachi Ramayan</a>
                     </li>
                     <li class="slide-in delay-3">
-                        <a href="shri_ram_dharma_debunking_myths.html">Common Misconceptions About Ramayana</a>
+                        <a href="article3.html">Common Misconceptions About Ramayana</a>
                     </li>
                     <li class="slide-in delay-4">
-                        <a href="odisha_hindu_scriptures.html">Odisha in Ancient Hindu Scriptures</a>
+                        <a href="article4.html">Odisha in Ancient Hindu Scriptures</a>
                     </li>
                     <li class="slide-in delay-5">
-                        <a href="jagannath_culture_history.html">The Ancient History of Jagannath Culture</a>
+                        <a href="article5.html">The Ancient History of Jagannath Culture</a>
                     </li>
                     <li class="slide-in delay-6">
                         <a href="puri_temple_architecture.html">Sacred Architecture of Puri Temple</a>
@@ -1099,64 +970,67 @@
                         <a href="mahaprasad_science.html">The Science Behind Jagannath Mahaprasad</a>
                     </li>
                     <li class="slide-in delay-8">
-                        <a href="child_marriage_vedic_rebuttal.html">Child Marriage in Sanatan Dharma - The Truth</a>
+                        <a href="article8.html">Child Marriage in Sanatan Dharma - The Truth</a>
                     </li>
                     <li class="slide-in delay-1">
-                        <a href="vegetarianism_sanatan_dharma.html">Vegetarianism in Hindu Tradition</a>
+                        <a href="article9.html">Vegetarianism in Hindu Tradition</a>
                     </li>
                     <li class="slide-in delay-2">
-                        <a href="vedic_scientific_miracles.html">Scientific Insights in the Vedas</a>
+                        <a href="article10.html">Scientific Insights in the Vedas</a>
                     </li>
                     <li class="slide-in delay-3">
-                        <a href="sanskrit_vs_prakrit.html">Sanskrit vs. Prakrit</a>
+                        <a href="article11.html">Sanskrit vs. Prakrit</a>
                     </li>
                     <li class="slide-in delay-4">
-                        <a href="perspectives_indian_caste_system.html">Perspectives on the Indian Caste System</a>
+                        <a href="article12.html">Perspectives on the Indian Caste System</a>
                     </li>
                     <li class="slide-in delay-5">
-                        <a href="hinduism_caste_scriptural_rebuttal.html">Is Hinduism Casteist?</a>
+                        <a href="article13.html">Is Hinduism Casteist?</a>
                     </li>
                     <li class="slide-in delay-6">
-                        <a href="gurukul_destruction_and_future.html">The Decline of Gurukuls and Revival</a>
+                        <a href="article14.html">The Decline of Gurukuls and Revival</a>
                     </li>
                     <li class="slide-in delay-7">
-                        <a href="ambedkar_manusmriti_facts.html">Did Dr. B.R. Ambedkar Burned Manusmriti?</a>
+                        <a href="article15.html">Did Dr. B.R. Ambedkar Burned Manusmriti?</a>
                     </li>
                     <li class="slide-in delay-8">
-                        <a href="ambedkar_degrees_fact_check.html">Did Dr. B.R. Ambedkar Really Have 32 Degrees?</a>
+                        <a href="article16.html">Did Dr. B.R. Ambedkar Really Have 32 Degrees?</a>
                     </li>
                     <li class="slide-in delay-1">
-                        <a href="debunking_slavery_myths_sanatan_dharma.html">Debunking Slavery in Sanatan Dharma</a>
+                        <a href="article17.html">Debunking Slavery in Sanatan Dharma</a>
                     </li>
                     <li class="slide-in delay-2">
-                        <a href="nalanda_vedic_hindu_roots.html">Nalanda & Hindu Foundations</a>
+                        <a href="article18.html">Nalanda & Hindu Foundations</a>
                     </li>
                     <li class="slide-in delay-3">
-                        <a href="varna_system_scriptural_clarification.html">The Varna System</a>
+                        <a href="article19.html">The Varna System</a>
                     </li>
                     <li class="slide-in delay-4">
-                        <a href="debunking_womens_vedic_authority_part1.html">Woman's Vedic Authority</a>
+                        <a href="article20.html">Woman's Vedic Authority</a>
                     </li>
                     <li class="slide-in delay-5">
-                        <a href="roe.html">Death of Rational Odia Claim</a>
+                        <a href="article21.html">Death of Rational Odia Claim</a>
                     </li>
                     <li class="slide-in delay-6">
-                        <a href="brahma_mithya.html">"Brahma Satya, Jagat Mithya" – RationalOdia के दावे का खंडन</a>
+                        <a href="article22.html">"Brahma Satya, Jagat Mithya" – RationalOdia के दावे का खंडन</a>
                     </li>
                     <li class="slide-in delay-7">
-                        <a href="nangeli.html">Busting the Myth of Nangeli and the "Breast Tax"</a>
+                        <a href="article23.html">Busting the Myth of Nangeli and the "Breast Tax"</a>
                     </li>
                     <li class="slide-in delay-8">
-                        <a href="bisar-mohanty.html">The Unsung Legend of Bisar Mohanty</a>
+                        <a href="article24.html">The Unsung Legend of Bisar Mohanty</a>
                     </li>
                     <li class="slide-in delay-1">
-                        <a href="understanding_manusmriti_4_80.html">Manusmriti 4.80</a>
+                        <a href="article25.html">Manusmriti 4.80</a>
                     </li>
                     <li class="slide-in delay-2">
-                        <a href="indus_hindu.html">सिंधु सभ्यता में हिंदु तथ्य</a>
+                        <a href="article26.html">सिंधु सभ्यता में हिंदु तथ्य</a>
                     </li>
                     <li class="slide-in delay-3">
-                        <a href="Shri_Radha_archaeology.html">Evidence of Sri Radha</a>
+                        <a href="article27.html">Evidence of Sri Radha</a>
+                    </li>
+                    <li class="slide-in delay-4">
+                        <a href="article28.html">Myth On Krishnh</a>
                     </li>
                 </ol>
             </section>
@@ -1169,13 +1043,13 @@
                 <a href="#jagannath">Jagannath Culture</a>
                 <a href="#mission">Mission</a>
                 <a href="disclaimer.html">Disclaimer</a>
-                <a href="about_riseuphindu.html">About Us</a>
+                <a href="about.html">About Us</a>
             </div>
             <div class="social-links">
                 <a href="https://www.instagram.com/realiology.c0m/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://x.com/Sanatan0070?t=dLfd4PajjlbN0dAsFXpvzw&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                <!-- <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a> -->
             </div>
             <p>© 2025 RiseUpHindu | ज्ञानं शक्ति (Knowledge is Power)</p>
             <p>Dedicated to the preservation and accurate representation of Hindu heritage</p>
@@ -1183,33 +1057,8 @@
         </footer>
     </div>
 
-    <!-- Back to top button -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- Service Worker Registration -->
-    <script>
-        // Register service worker for PWA functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful');
-                }).catch(err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
-
-    <!-- Main JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide loader after page loads
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1000);
-
             // Navbar scroll effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', function() {
@@ -1251,40 +1100,6 @@
                 });
             });
 
-            // Back to top button
-            const backToTop = document.getElementById('backToTop');
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-            
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Lazy loading images
-            const lazyImages = document.querySelectorAll('img.lazy');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            lazyImages.forEach(img => {
-                imageObserver.observe(img);
-            });
-
             // Intersection Observer for animations
             const animateElements = document.querySelectorAll('.animate, .slide-in');
             const observer = new IntersectionObserver((entries) => {
@@ -1310,40 +1125,6 @@
                 element.style.transition = 'opacity 1s ease, transform 1s ease';
                 observer.observe(element);
             });
-
-            // Web analytics (basic implementation)
-            window.addEventListener('load', function() {
-                // Track page view
-                if (navigator.sendBeacon) {
-                    const data = new FormData();
-                    data.append('url', window.location.href);
-                    data.append('referrer', document.referrer);
-                    navigator.sendBeacon('/analytics', data);
-                }
-            });
-
-            // Offline detection
-            window.addEventListener('offline', () => {
-                showNotification('You are offline. Some features may not be available.');
-            });
-
-            window.addEventListener('online', () => {
-                showNotification('You are back online!');
-            });
-
-            function showNotification(message) {
-                if (!('Notification' in window)) return;
-                
-                if (Notification.permission === 'granted') {
-                    new Notification(message);
-                } else if (Notification.permission !== 'denied') {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === 'granted') {
-                            new Notification(message);
-                        }
-                    });
-                }
-            }
         });
     </script>
 </body>
