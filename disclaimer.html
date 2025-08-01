@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📜 RiseUpHindu Disclaimer</title>
+    <meta name="description" content="Official disclaimer for RiseUpHindu, outlining the educational, spiritual, and cultural purpose of the platform, protected under the Indian Constitution.">
+    <meta name="keywords" content="RiseUpHindu, disclaimer, Sanatan Dharma, Indian Constitution, spiritual content, cultural awareness, Hindu scriptures, religious education">
+    <meta name="author" content="RiseUpHindu">
+    <meta property="og:title" content="RiseUpHindu Disclaimer">
+    <meta property="og:description" content="Official disclaimer for RiseUpHindu, promoting educational and spiritual content under the Indian Constitution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riseuphindu.com/disclaimer.html">
+    <meta property="og:image" content="https://riseuphindu.com/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RiseUpHindu Disclaimer">
+    <meta name="twitter:description" content="Official disclaimer for RiseUpHindu, promoting educational and spiritual content.">
+    <meta name="twitter:image" content="https://riseuphindu.com/assets/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Serif+Devanagari:wght@700&display=swap&font-display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #1a202c;
+            --accent-color: #60a5fa;
+            --text-color: #e5e7eb;
+            --background: linear-gradient(to bottom, #1a202c, #2d3748);
+            --surface: #2d3748;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 10px rgba(96, 165, 250, 0.5);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif', serif;
+            line-height: 1.8;
+            background: var(--background);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            transition: background 0.3s ease;
+        }
+        nav.scrolled {
+            background: #111827;
+            backdrop-filter: blur(12px);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Noto Serif Devanagari', serif;
+            font-size: clamp(1.6rem, 2.5vw, 1.8rem);
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .nav-logo::before {
+            content: "🕉️";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .hamburger:hover {
+            transform: rotate(90deg);
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 5rem auto 2rem;
+            padding: 0 2rem;
+        }
+        .disclaimer-card {
+            background: var(--surface);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .disclaimer-card.visible {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        h1 {
+            font-family: 'Noto Serif Devanagari', serif;
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h1::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            filter: blur(10px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        h1::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h2 {
+            font-family: 'Noto Serif Devanagari', serif;
+            font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+        h2::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            filter: blur(10px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        p {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            margin-bottom: 1rem;
+        }
+        .highlight {
+            color: var(--accent-color);
+            background: rgba(96, 165, 250, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: help;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        .highlight:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            background: var(--surface);
+            color: var(--text-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            z-index: 10;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeInTooltip 0.3s ease forwards 0.2s;
+        }
+        .home-link {
+            display: block;
+            margin: 2rem auto;
+            text-align: center;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            transition: transform 0.3s ease, background 0.3s ease;
+            width: fit-content;
+        }
+        .home-link:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
+
+        /* FAB */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .fab:hover {
+            transform: scale(1.1);
+            background: var(--accent-color);
+        }
+        .fab::before {
+            content: "↑";
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-color);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            padding: 3rem 0;
+            background: #111827;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInTooltip {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate { animation: fadeIn 0.5s ease forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            main {
+                padding: 0 1rem;
+                margin-top: 4rem;
+            }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: clamp(1.8rem, 2.5vw, 2rem); }
+            h2 { font-size: clamp(1.4rem, 2vw, 1.6rem); }
+            p { font-size: clamp(0.9rem, 1.3vw, 1rem); }
+            .home-link { padding: 0.7rem 1.3rem; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: clamp(1.6rem, 2.2vw, 1.8rem); }
+            h2 { font-size: clamp(1.2rem, 1.8vw, 1.4rem); }
+            p { font-size: clamp(0.85rem, 1.2vw, 0.95rem); }
+            .home-link { padding: 0.6rem 1.2rem; }
+            .disclaimer-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="home.html" class="nav-logo" aria-label="RiseUpHindu Home">RiseUpHindu</a>
+            <div class="nav-links" id="navLinks" aria-hidden="true">
+                <a href="home.html#home" aria-label="Home section"><i class="fas fa-home"></i> Home</a>
+                <a href="home.html#reading-path" aria-label="Scriptures section"><i class="fas fa-book"></i> Scriptures</a>
+                <a href="home.html#jagannath" aria-label="Jagannath Culture section"><i class="fas fa-om"></i> Jagannath Culture</a>
+                <a href="home.html#mission" aria-label="Mission section"><i class="fas fa-dharmachakra"></i> Mission</a>
+                <a href="home.html#articles" aria-label="Articles section"><i class="fas fa-scroll"></i> Articles</a>
+                <a href="home.html#join" aria-label="Join Us section"><i class="fas fa-hands-helping"></i> Join Us</a>
+                <a href="disclaimer.html" aria-label="Disclaimer page"><i class="fas fa-info-circle"></i> Disclaimer</a>
+                <a href="about_riseuphindu.html" aria-label="About Us page"><i class="fas fa-users"></i> About Us</a>
+            </div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" aria-expanded="false">☰</div>
+        </div>
+    </nav>
+
+    <main aria-label="Disclaimer content">
+        <section class="container">
+            <h1 class="animate">📜 RiseUpHindu Disclaimer</h1>
+            <div class="disclaimer-card animate delay-1">
+                <h2 class="animate delay-2"><i class="fas fa-book"></i> Official Disclaimer (Religious/Spiritual Content)</h2>
+                <p class="animate delay-3">This content is published under <span class="highlight" data-tooltip="Freedom of speech">Article 19(1)(a)</span> and <span class="highlight" data-tooltip="Freedom of religion">Article 25</span> of the <span class="highlight" data-tooltip="Indian Constitution">Constitution of India</span>.</p>
+                <p class="animate delay-1">The views, information, and content shared on this platform are for <span class="highlight" data-tooltip="Purpose of content">educational, spiritual, and cultural purposes</span> only. We do <strong>not</strong> intend to hurt, offend, disrespect, or defame any religion, caste, community, organization, or individual.</p>
+                <p class="animate delay-2">This platform <strong>does not promote</strong> religious hatred, violence, extremism, or abusive language of any kind. If any opinion, verse, or explanation unintentionally hurts anyone’s sentiments, we sincerely apologize.</p>
+                <p class="animate delay-3">We fully <strong>respect the Indian Constitution</strong>, Indian law, and all religious communities equally. We encourage all viewers to engage with this content with an open and informed mind.</p>
+                <p class="animate delay-1"><strong>Legal Note:</strong> This content is protected under the <span class="highlight" data-tooltip="Indian Constitution">Indian Constitution</span> and is intended for respectful discussion, learning, and awareness. Viewer discretion is advised.</p>
+                <p class="animate delay-2" style="font-size: clamp(0.8rem, 1.2vw, 0.9rem); color: #d1d5db; text-align: center;">© All rights reserved. Educational & Spiritual Use Only.</p>
+            </div>
+            <a href="home.html" class="home-link animate delay-3" aria-label="Return to home page">Back to Home Page</a>
+        </section>
+    </main>
+
+    <div class="fab animate delay-1" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top"></div>
+
+    <footer aria-label="Site footer">
+        <div class="footer-links">
+            <a href="home.html#home" aria-label="Home section">Home</a>
+            <a href="home.html#reading-path" aria-label="Scriptures section">Scriptures</a>
+            <a href="home.html#jagannath" aria-label="Jagannath Culture section">Jagannath Culture</a>
+            <a href="home.html#mission" aria-label="Mission section">Mission</a>
+            <a href="home.html#articles" aria-label="Articles section">Articles</a>
+            <a href="home.html#join" aria-label="Join Us section">Join Us</a>
+        </div>
+        <div class="social-links">
+            <a href="https://x.com/riseuphindu" target="_blank" aria-label="Follow us on X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://facebook.com/riseuphindu" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/riseuphindu" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/riseuphindu" target="_blank" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>ज्ञानं शक्ति | जय जगन्नाथ</p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RiseUpHindu",
+        "url": "https://riseuphindu.com",
+        "description": "A platform dedicated to promoting Sanatan Dharma through educational and spiritual content.",
+        "sameAs": [
+            "https://x.com/riseuphindu",
+            "https://facebook.com/riseuphindu",
+            "https://instagram.com/riseuphindu",
+            "https://youtube.com/riseuphindu"
+        ]
+    }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            const isExpanded = navLinks.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+            navLinks.setAttribute('aria-hidden', !isExpanded);
+        });
+
+        // Scroll Effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

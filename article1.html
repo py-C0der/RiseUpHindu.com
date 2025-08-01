@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Debunking the Aryan Invasion Theory with genetic, archaeological, astronomical, and textual evidence.">
+    <meta name="keywords" content="Aryan Invasion Theory, Sanatan Dharma, Vedic Civilization, Hindu Heritage, Indigenous History">
+    <meta name="author" content="RiseUpHindu">
+    <title>📜 Debunking the Aryan Invasion Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e40af; /* Deep Blue */
+            --primary-dark: #1e3a8a;
+            --secondary: #1a202c; /* Near Black */
+            --secondary-dark: #111827;
+            --accent: #60a5fa; /* Light Blue */
+            --background: #1a202c;
+            --surface: #2d3748;
+            --surface-light: #374151;
+            --text: #e5e7eb;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --divider: #4b5563;
+            --glow: 0 0 10px rgba(96, 165, 250, 0.3);
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 36px rgba(96, 165, 250, 0.2);
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --om-symbol: "ॐ";
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: radial-gradient(circle, #2d3748 0%, #1a202c 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-logo::before {
+            content: var(--om-symbol);
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .content-box {
+            background: rgba(45, 55, 72, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Noto Serif Devanagari', 'Poppins', sans-serif;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            padding-bottom: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 3rem;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        ul li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .conclusion {
+            background: rgba(96, 165, 250, 0.2);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease;
+        }
+
+        .conclusion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
+            z-index: -1;
+        }
+
+        .highlight {
+            background: rgba(96, 165, 250, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-weight: 600;
+            cursor: help;
+            position: relative;
+        }
+
+        .highlight:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            background: var(--surface);
+            color: var(--text);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            z-index: 10;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .quote-box {
+            background: rgba(96, 165, 250, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-box::before {
+            content: '\201C';
+            font-family: 'Noto Serif Devanagari', sans-serif;
+            font-size: 4rem;
+            color: rgba(96, 165, 250, 0.2);
+            position: absolute;
+            left: 10px;
+            top: -10px;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        .call-to-action::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        .call-to-action a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .call-to-action a:hover {
+            background: var(--text-light);
+            color: var(--primary);
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hashtags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .hashtag {
+            background: rgba(96, 165, 250, 0.2);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .hashtag:hover {
+            background: var(--accent);
+            color: var(--surface);
+            transform: translateY(-3px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), transparent);
+            margin: 50px 0;
+        }
+
+        .header-icon {
+            display: block;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            animation: bounce 2s infinite;
+        }
+
+        .evidence-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-sm);
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent);
+            transition: all 0.4s ease;
+        }
+
+        .evidence-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .evidence-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .evidence-icon {
+            font-size: 1.5rem;
+        }
+
+        .final-statement {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 50px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(96, 165, 250, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab::before {
+            content: "↑";
+            font-size: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 992px) {
+            .container { padding: 0 15px; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .content-box { padding: 25px; }
+            .call-to-action { padding: 25px; }
+            .final-statement { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            .content-box { padding: 20px; }
+            .call-to-action { padding: 20px; }
+            .final-statement { font-size: 1.5rem; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--surface-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="home.html" class="nav-logo">RiseUpHindu</a>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html#articles">Back</a>
+            </div>
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content-box animate" style="animation-delay: 0.1s;">
+            <div class="header-icon">
+                <i class="fas fa-history"></i>
+            </div>
+            <a href="https://www.instagram.com/p/C8_OuIRyofN">
+                <h1><i class="fas fa-book-open"></i> Debunking the Aryan Invasion Theory</h1>
+            </a>
+            <p>For centuries, the <span class="highlight" data-tooltip="Aryan Invasion Theory">Aryan Invasion Theory (AIT)</span> has shaped the mainstream narrative about India’s past. But what if we told you this theory is not only unscientific but also rooted in colonial agendas?</p>
+            <p>In this comprehensive exploration, we will dismantle the AIT myth using <span class="highlight" data-tooltip="Genetic, archaeological, astronomical, and textual evidence">genetic, archaeological, astronomical, and textual evidence</span>, proving that India’s ancient civilization was indigenous and continuous.</p>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.2s;">
+            <h2><i class="fas fa-question-circle evidence-icon"></i> What is the <span class="highlight" data-tooltip="Aryan Invasion/Migration Theory">Aryan Invasion/Migration Theory</span>?</h2>
+            <p>This controversial theory, primarily proposed by British missionary and linguist <span class="highlight" data-tooltip="Max Müller">Max Müller</span>, makes several problematic claims:</p>
+            <ul>
+                <li>Aryans invaded India around <span class="highlight" data-tooltip="1500 BCE">1500 BCE</span> from Central Asia.</li>
+                <li>They allegedly destroyed the advanced <span class="highlight" data-tooltip="Indus Valley Civilization">Indus Valley Civilization (IVC)</span>.</li>
+                <li>Aryans supposedly introduced the <span class="highlight" data-tooltip="Horse">horse</span> to India.</li>
+                <li>They composed the <span class="highlight" data-tooltip="Vedas">Vedas</span> after entering India.</li>
+            </ul>
+            <div class="quote-box">
+                Max Müller himself admitted that his agenda was to <span class="highlight" data-tooltip="Undermine the Vedas">undermine the Vedas</span> to facilitate the spread of Christianity. In his own words, the Vedas were “the root of their religion,” and to conquer the Indian mind, they had to be dismantled.
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.3s;">
+            <h2><i class="fas fa-dna evidence-icon"></i> Genetic Evidence: DNA Destroys AIT</h2>
+            <p>Modern genetic studies completely <span class="highlight" data-tooltip="Refute the notion of Aryan invasion or migration">refute the notion of Aryan invasion or migration</span>:</p>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-microscope"></i>
+                    <h3>National Library of Medicine Research</h3>
+                </div>
+                <p>Studies confirm that Indian populations have a <span class="highlight" data-tooltip="Unique genetic identity">unique genetic identity</span> reflecting deep local roots. Both southern and northern Indian gene pools show <span class="highlight" data-tooltip="Greater diversity than Western Eurasia">greater diversity than Western Eurasia</span>, negating any large-scale invasion.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-digging"></i>
+                    <h3>Rakhigarhi DNA Study (2019)</h3>
+                </div>
+                <p>Led by archaeologist <span class="highlight" data-tooltip="Vasant Shinde">Vasant Shinde</span>, this groundbreaking study found <span class="highlight" data-tooltip="No Steppe or Iranian ancestry">no Steppe or Iranian ancestry</span> in ancient Harappan individuals, conclusively debunking the claim that Indo-Aryans were foreign invaders.</p>
+            </div>
+            <div class="conclusion">
+                <i class="fas fa-check-circle"></i> Conclusion: Indians are <span class="highlight" data-tooltip="Indigenous">indigenous</span>, and Harappans are <span class="highlight" data-tooltip="Our ancestors">our ancestors</span>—not victims of a foreign race.
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.4s;">
+            <h2><i class="fas fa-horse evidence-icon"></i> Myth: Aryans Brought the Horse</h2>
+            <p>AIT claims the IVC was unaware of the horse. The evidence says otherwise:</p>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-bone"></i>
+                    <h3>Surkotada Excavation (2100–1700 BCE)</h3>
+                </div>
+                <p>Archaeologists uncovered <span class="highlight" data-tooltip="Actual horse bones">actual horse bones</span>, officially documented by the <span class="highlight" data-tooltip="Archaeological Survey of India">Archaeological Survey of India</span> in 1990.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-archway"></i>
+                    <h3>Multiple IVC Sites</h3>
+                </div>
+                <p>Remains of <span class="highlight" data-tooltip="Equus caballus (true horse)">Equus caballus (true horse)</span> were found at <span class="highlight" data-tooltip="Mohenjo-Daro, Harappa, Kalibangan, and Lothal">Mohenjo-Daro, Harappa, Kalibangan, and Lothal</span>, predating the alleged Aryan migration.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Bhimbetka Cave Paintings</h3>
+                </div>
+                <p>Dating back to <span class="highlight" data-tooltip="10,000 BCE">10,000 BCE</span>, these ancient artworks depict scenes of taming wild horses—far older than any proposed Aryan migration timeline.</p>
+            </div>
+            <div class="conclusion">
+                <i class="fas fa-check-circle"></i> Conclusion: Horses existed in India <span class="highlight" data-tooltip="Millennia before 1500 BCE">millennia before 1500 BCE</span>.
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.5s;">
+            <h2><i class="fas fa-book evidence-icon"></i> Myth: Aryans Wrote the Vedas in 1500 BCE</h2>
+            <p>Vedic texts contain detailed <span class="highlight" data-tooltip="Astronomical references">astronomical references</span> that allow precise dating:</p>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-star"></i>
+                    <h3>Shatapatha Brahmana Records</h3>
+                </div>
+                <p>Described astronomical events align with the sky of <span class="highlight" data-tooltip="3000 BCE">3000 BCE</span>, proving these texts predate the alleged Aryan arrival.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-sun"></i>
+                    <h3>Krishna Yajurveda References</h3>
+                </div>
+                <p>Descriptions of the solar solstice date back to <span class="highlight" data-tooltip="8500 BCE">8500 BCE</span>, placing Vedic knowledge far older than claimed.</p>
+            </div>
+            <div class="conclusion">
+                <i class="fas fa-check-circle"></i> Conclusion: The Vedas are <span class="highlight" data-tooltip="Indigenous">indigenous</span> and <span class="highlight" data-tooltip="Far older">far older</span>—possibly as early as <span class="highlight" data-tooltip="8500 BCE">8500 BCE</span>.
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.6s;">
+            <h2><i class="fas fa-chess-pawn evidence-icon"></i> The Real Agenda Behind AIT</h2>
+            <p>AIT was not about history—it was about <span class="highlight" data-tooltip="Divide and rule">divide and rule</span>:</p>
+            <ul>
+                <li>By labeling Vedic culture as “foreign,” the British sought to create <span class="highlight" data-tooltip="Caste divisions">caste divisions</span> and undermine <span class="highlight" data-tooltip="Hindu pride">Hindu pride</span>.</li>
+                <li>It provided Christian missionaries a tool to claim <span class="highlight" data-tooltip="Superiority over ‘pagan’ traditions">superiority over “pagan” traditions</span>.</li>
+                <li>Indian Marxist historians and colonial-era scholars perpetuated this myth for ideological purposes.</li>
+            </ul>
+            <div class="quote-box">
+                “The Aryan theory was a convenient way to justify colonial rule, portraying Indians as incapable of self-governance, needing the ‘civilizing’ influence of the West.” — <span class="highlight" data-tooltip="Dr. Koenraad Elst">Dr. Koenraad Elst</span>
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.7s;">
+            <h2><i class="fas fa-fire evidence-icon"></i> Final Blow: The Invasion That Never Happened</h2>
+            <p>From <span class="highlight" data-tooltip="Genetics">genetics</span> to <span class="highlight" data-tooltip="Archaeology">archaeology</span>, <span class="highlight" data-tooltip="Linguistics">linguistics</span> to <span class="highlight" data-tooltip="Astronomy">astronomy</span>, the evidence is overwhelming:</p>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-helmet-battle"></i>
+                    <h3>No Evidence of Invasion</h3>
+                </div>
+                <p>IVC sites show no signs of mass violence, destruction layers, or foreign artifacts during the proposed invasion period.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-language"></i>
+                    <h3>Linguistic Continuity</h3>
+                </div>
+                <p>Sanskrit shows deep roots in the subcontinent, with no evidence of being an imported language.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-monument"></i>
+                    <h3>Cultural Continuity</h3>
+                </div>
+                <p>Vedic practices and IVC artifacts show remarkable similarities, suggesting a continuous civilization.</p>
+            </div>
+        </div>
+
+        <div class="content-box animate" style="animation-delay: 0.8s;">
+            <h2><i class="fas fa-user-tie evidence-icon"></i> <span class="highlight" data-tooltip="Dr. Ambedkar">Dr. Ambedkar</span>’s Views on Shudras and Aryans</h2>
+            <a href="https://www.mea.gov.in/Images/CPV/VolumeH7.pdf">
+                <p>(From “Dr. Babasaheb Ambedkar: Writings and Speeches,” Volume 7, pp. 309–310)</p>
+            </a>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Rejecting the Aryan Invasion Theory</h3>
+                </div>
+                <div class="quote-box">
+                    “It is wrong to assume that Aryan invaders defeated the Shudras.”
+                </div>
+                <p>Dr. Ambedkar firmly rejects the notion that:</p>
+                <ul>
+                    <li>Aryans came from outside India.</li>
+                    <li>Aryans invaded and conquered indigenous peoples (like Shudras or Dasas).</li>
+                    <li>There was any war between Aryans and Shudras.</li>
+                    <li>Aryans were more powerful or militarily dominant.</li>
+                </ul>
+                <p>📌 There is <span class="highlight" data-tooltip="No textual or archaeological evidence">no textual or archaeological evidence</span> in the Vedas or ancient Indian literature supporting such claims.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-users"></i>
+                    <h3>Shudras Were Aryans</h3>
+                </div>
+                <div class="quote-box">
+                    “Shudras were part of the Aryan community.”
+                </div>
+                <ul>
+                    <li>Shudras were originally an integral part of Aryan society.</li>
+                    <li>They were excluded from Vedic rituals due to opposition to certain practices, not because of birth.</li>
+                    <li>Their distinct varna status emerged from socio-political developments, not race.</li>
+                </ul>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-palette"></i>
+                    <h3>Caste Was Not Based on Race</h3>
+                </div>
+                <div class="quote-box">
+                    “It is not true that Shudras were dark-skinned or racially inferior.”
+                </div>
+                <p>Vedic evidence does not support the notion that Shudras were dark-skinned or physically distinct from Aryans. The idea of Aryans enslaving dark-skinned people is entirely baseless.</p>
+            </div>
+            <div class="evidence-card">
+                <div class="evidence-title">
+                    <i class="fas fa-crown"></i>
+                    <h3>Shudras’ Participation in Royal Ceremonies</h3>
+                </div>
+                <div class="quote-box">
+                    “Shudras were invited to coronation ceremonies alongside Brahmins, Kshatriyas, and Vaishyas.”
+                </div>
+                <p>Texts like the <span class="highlight" data-tooltip="Mahabharata">Mahabharata</span> show Shudras participating in royal coronations, proving their political inclusion.</p>
+            </div>
+            <div class="conclusion">
+                <i class="fas fa-check-circle"></i> Final Thought: Dr. Ambedkar’s arguments, using authentic Indian sources, challenge <span class="highlight" data-tooltip="Colonial narratives">colonial narratives</span>, showing that <span class="highlight" data-tooltip="Shudras were neither invaders, defeated, nor racially distinct">Shudras were neither invaders, defeated, nor racially distinct—they were simply Aryans later marginalized</span>.
+            </div>
+        </div>
+
+        <div class="call-to-action animate" style="animation-delay: 0.9s;">
+            <h2>Reclaim Our History!</h2>
+            <p>Share this knowledge and help correct the historical record</p>
+        </div>
+
+        <div class="final-statement animate" style="animation-delay: 1s;">
+            The Aryan Invasion Theory Is Dead.
+        </div>
+
+        <div class="hashtags animate" style="animation-delay: 1.1s;">
+            <span class="hashtag">#AryanInvasionMyth</span>
+            <span class="hashtag">#VedicIndia</span>
+            <span class="hashtag">#IndiaFirst</span>
+            <span class="hashtag">#SanatanPower</span>
+            <span class="hashtag">#IndigenousCivilization</span>
+        </div>
+    </div>
+
+    <div class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+
+    <div class="cursor-trail"></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#60a5fa' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 1, direction: 'none', random: true }
+            },
+            interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' } } }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 1s ease, transform 1s ease';
+                observer.observe(element);
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('#navLinks');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            const cursorTrail = document.querySelector('.cursor-trail');
+            let trailX = 0, trailY = 0;
+            document.addEventListener('mousemove', (e) => {
+                trailX += (e.clientX - trailX) * 0.2;
+                trailY += (e.clientY - trailY) * 0.2;
+                cursorTrail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
