@@ -294,15 +294,40 @@
             padding: 0 2px;
         }
 
+        .table-container {
+            position: relative;
+            margin: 2rem 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
         table {
             width: 100%;
+            min-width: 600px; /* Ensures table is wide enough to require scrolling on smaller screens */
             border-collapse: collapse;
-            margin: 2rem 0;
             background: var(--surface-dark);
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
             transition: var(--transition);
+        }
+
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
         }
 
         table:hover {
@@ -320,6 +345,9 @@
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--text);
             font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
 
         td {
@@ -510,12 +538,6 @@
             .content-box {
                 padding: 2rem;
             }
-
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
         }
     </style>
 </head>
@@ -552,37 +574,39 @@
                 <h2>Restoring Order in a Disordered World</h2>
                 <p>In modern chaos, where everyone often tries to do everything, the ancient <strong>Varna system</strong> offered a powerful solution: <strong>clarity of duty (स्वधर्म - Svadharma)</strong>. This division of responsibility helps <strong>prevent confusion</strong> and enhances <strong>efficiency</strong> in nation-building, allowing individuals to contribute their best according to their inherent nature and skills.</p>
                 <p>Here's how the traditional Varna roles can be understood in a modern context:</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Varna</th>
-                            <th>Role</th>
-                            <th>Modern Equivalent</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>🧠 <strong>Brahmin</strong></td>
-                            <td>Knowledge, teaching, ethics</td>
-                            <td>Teachers, researchers, dharmic thinkers</td>
-                        </tr>
-                        <tr>
-                            <td>🗡️ <strong>Kshatriya</strong></td>
-                            <td>Leadership, protection</td>
-                            <td>Policymakers, defense, social warriors</td>
-                        </tr>
-                        <tr>
-                            <td>💰 <strong>Vaishya</strong></td>
-                            <td>Wealth creation, trade</td>
-                            <td>Entrepreneurs, financiers, economic developers</td>
-                        </tr>
-                        <tr>
-                            <td>🛠️ <strong>Shudra</strong></td>
-                            <td>Service, support</td>
-                            <td>Engineers, builders, creators, skilled tech hands</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Varna</th>
+                                <th>Role</th>
+                                <th>Modern Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🧠 <strong>Brahmin</strong></td>
+                                <td>Knowledge, teaching, ethics</td>
+                                <td>Teachers, researchers, dharmic thinkers</td>
+                            </tr>
+                            <tr>
+                                <td>🗡️ <strong>Kshatriya</strong></td>
+                                <td>Leadership, protection</td>
+                                <td>Policymakers, defense, social warriors</td>
+                            </tr>
+                            <tr>
+                                <td>💰 <strong>Vaishya</strong></td>
+                                <td>Wealth creation, trade</td>
+                                <td>Entrepreneurs, financiers, economic developers</td>
+                            </tr>
+                            <tr>
+                                <td>🛠️ <strong>Shudra</strong></td>
+                                <td>Service, support</td>
+                                <td>Engineers, builders, creators, skilled tech hands</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p>This framework emphasizes that society thrives when each individual understands and fulfills their unique contribution, leading to a harmonious and efficient civilization.</p>
             </div>
         </section>
@@ -646,7 +670,7 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.content-box, .divider').forEach(el => {
+            document.querySelectorAll('.content-box, .divider, .table-container').forEach(el => {
                 observer.observe(el);
             });
         });
