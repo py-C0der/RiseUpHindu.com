@@ -23,23 +23,21 @@
     <style>
         :root {
             --primary: #1e40af; /* Deep Blue */
-            --primary-dark: #1e3a8a;
-            --secondary: #111827; /* Dark Background */
-            --accent: #3b82f6; /* Blue */
-            --accent-light: #60a5fa;
-            --background: #1f2937; /* Slightly lighter background */
-            --surface: #1f2937; /* Content background */
-            --surface-light: #374151;
-            --text: #e5e7eb; /* Light text */
-            --text-muted: #9ca3af; /* Gray Text */
-            --divider: #4b5563; /* Divider */
-            --success: #10b981; /* Green */
-            --error: #ef4444; /* Red */
-            --warning: #f59e0b;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
-            --border-radius: 8px;
-            --glow: 0 0 10px rgba(96, 165, 250, 0.5);
+            --primary-dark: #172554;
+            --secondary: #0f172a; /* Dark Slate */
+            --accent: #3b82f6; /* Vibrant Blue */
+            --accent-dark: #2563eb;
+            --background: #0b1120; /* Darker Background */
+            --surface: #1e293b; /* Content Surface */
+            --surface-dark: #111827;
+            --text: #e2e8f0; /* Light Text */
+            --text-muted: #94a3b8; /* Muted Text */
+            --divider: #374151; /* Subtle Divider */
+            --glow: 0 0 15px rgba(59, 130, 246, 0.5);
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -54,17 +52,19 @@
             background: var(--background);
             font-family: 'Noto Serif', serif;
             color: var(--text);
+            scroll-behavior: smooth;
         }
 
         body {
-            line-height: 1.6;
-            background: linear-gradient(to bottom, var(--secondary), var(--background));
+            line-height: 1.7;
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--background) 100%);
             min-height: 100vh;
+            position: relative;
         }
 
-        /* Scrollbar styling */
+        /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
 
         ::-webkit-scrollbar-track {
@@ -72,12 +72,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
+            background: linear-gradient(180deg, var(--accent), var(--accent-dark));
         }
 
         /* Navigation */
@@ -85,17 +85,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(17, 24, 39, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         nav.scrolled {
-            background: rgba(17, 24, 39, 0.95);
+            background: rgba(15, 23, 42, 0.98);
             box-shadow: var(--shadow-lg);
+            transform: translateY(0);
         }
 
         .nav-container {
@@ -108,31 +109,48 @@
 
         .nav-logo {
             font-family: 'Noto Serif Devanagari', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--accent);
             text-decoration: none;
             display: flex;
             align-items: center;
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            color: var(--accent-dark);
+            transform: scale(1.05);
         }
 
         .nav-logo::before {
             content: "🕉️";
-            margin-right: 0.5rem;
-            font-size: 1.5rem;
+            margin-right: 0.6rem;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover::before {
+            transform: rotate(360deg);
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a i {
+            margin-right: 0.5rem;
         }
 
         .nav-links a::after {
@@ -141,13 +159,14 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--accent);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
             color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .nav-links a:hover::after {
@@ -156,33 +175,40 @@
 
         .hamburger {
             display: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .hamburger:hover {
             color: var(--accent);
-            transform: rotate(90deg);
+            transform: scale(1.2);
         }
 
         /* Main Content */
         main {
-            max-width: 1000px;
-            margin: 6rem auto 2rem;
+            max-width: 1100px;
+            margin: 7rem auto 3rem;
             padding: 0 2rem;
         }
 
         .content-box {
             background: var(--surface);
             border-radius: var(--border-radius);
-            padding: 2.5rem;
-            margin: 2.5rem 0;
+            padding: 3rem;
+            margin: 3rem 0;
             box-shadow: var(--shadow);
-            border: 1px solid var(--primary);
+            border: 1px solid var(--primary-dark);
             position: relative;
             overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
         .content-box::before {
@@ -192,96 +218,122 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(96, 165, 250, 0.1));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 64, 175, 0.05));
             z-index: 0;
+            transition: var(--transition);
+        }
+
+        .content-box:hover::before {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(30, 64, 175, 0.1));
         }
 
         h1 {
             font-family: 'Noto Serif Devanagari', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--accent);
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         h1::after {
             content: "";
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent));
+            border-radius: 2px;
         }
 
         h2 {
             font-family: 'Noto Serif Devanagari', serif;
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--accent-light);
-            margin: 2rem 0 1rem;
+            margin: 2.5rem 0 1.5rem;
             position: relative;
+            z-index: 1;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         h2::before {
             content: "🕉️";
             position: absolute;
-            left: -35px;
-            top: 0;
-            opacity: 0.5;
-            font-size: 1.8rem;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
+            font-size: 2rem;
             color: var(--accent);
+            transition: var(--transition);
+        }
+
+        h2:hover::before {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.2);
         }
 
         p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.9;
+            z-index: 1;
+            position: relative;
         }
 
         strong {
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
+            background: linear-gradient(180deg, transparent 65%, rgba(59, 130, 246, 0.2) 65%);
+            padding: 0 2px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.8rem 0;
-            background: var(--surface-light);
+            margin: 2rem 0;
+            background: var(--surface-dark);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        table:hover {
+            box-shadow: var(--shadow-lg);
         }
 
         th, td {
             border: 1px solid var(--divider);
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: left;
+            transition: var(--transition);
         }
 
         th {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--text);
             font-weight: 600;
         }
 
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.05);
+        td {
+            background: var(--surface-dark);
         }
 
-        tr:hover {
-            background: rgba(96, 165, 250, 0.1);
+        tr:hover td {
+            background: rgba(59, 130, 246, 0.15);
         }
 
         .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            margin: 3rem 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 3.5rem 0;
             position: relative;
         }
 
@@ -292,82 +344,100 @@
             top: 50%;
             transform: translate(-50%, -50%);
             background: var(--surface);
-            padding: 0 15px;
-            font-size: 1.2rem;
+            padding: 0 20px;
+            font-size: 1.5rem;
             color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .divider:hover::after {
+            transform: translate(-50%, -50%) scale(1.2);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 5rem;
             color: var(--text-muted);
-            font-size: 1rem;
-            padding: 3rem 0;
+            font-size: 1.1rem;
+            padding: 4rem 0;
             background: var(--secondary);
             position: relative;
+            box-shadow: var(--shadow);
         }
 
         footer::before {
             content: "";
             position: absolute;
             top: 0;
-            left: 15%;
-            width: 70%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            gap: 2rem;
+            margin: 2rem 0;
             flex-wrap: wrap;
         }
 
         .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
             color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
         .social-links a {
             color: var(--text);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
             color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.2);
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .animate {
             opacity: 0;
-            animation: fadeIn 0.5s ease forwards;
+            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.5s; }
+        .delay-3 { animation-delay: 0.7s; }
+
+        .pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -384,28 +454,52 @@
                 width: 100%;
                 height: 100vh;
                 background: var(--background);
-                padding: 5rem 2rem 2rem;
-                gap: 1.5rem;
+                padding: 6rem 2rem 2rem;
+                gap: 2rem;
                 z-index: 1000;
             }
 
             .hamburger {
                 display: block;
+                z-index: 1001;
             }
 
             main {
-                margin-top: 5rem;
+                margin-top: 6rem;
                 padding: 0 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
             h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h2::before {
+                left: -30px;
+                font-size: 1.8rem;
+            }
+
+            .content-box {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
                 font-size: 2rem;
             }
 
             h2 {
                 font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1.05rem;
             }
 
             h2::before {
@@ -416,33 +510,11 @@
             .content-box {
                 padding: 2rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            h2::before {
-                left: -20px;
-                font-size: 1.2rem;
-            }
-
-            .content-box {
-                padding: 1.5rem;
-            }
 
             table {
                 display: block;
                 overflow-x: auto;
+                white-space: nowrap;
             }
         }
     </style>
@@ -450,7 +522,7 @@
 <body>
     <nav id="navbar">
         <div class="nav-container">
-            <a href="home.html" class="nav-logo">RiseUpHindu</a>
+            <a href="home.html" class="nav-logo pulse">RiseUpHindu</a>
             <div class="nav-links" id="navLinks">
                 <a href="home.html#home"><i class="fas fa-home"></i> Home</a>
                 <a href="home.html#reading-path"><i class="fas fa-book"></i> Scriptures</a>
@@ -552,6 +624,7 @@
             hamburger.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
                 hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
             });
 
             // Close mobile menu when clicking a link
@@ -559,7 +632,22 @@
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                     hamburger.textContent = '☰';
+                    document.body.style.overflow = 'auto';
                 });
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-box, .divider').forEach(el => {
+                observer.observe(el);
             });
         });
     </script>
