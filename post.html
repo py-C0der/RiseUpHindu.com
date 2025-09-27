@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseUpHindu - Posts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --dark-navy: #020c1b;
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #172a45;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --green-tint: rgba(100, 255, 218, 0.1);
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            grid-template-rows: 80px 1fr;
+            min-height: 100vh;
+        }
+
+        header {
+            grid-column: 1 / 3;
+            background-color: var(--dark-navy);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            background: linear-gradient(45deg, var(--green), var(--lightest-slate));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        aside {
+            background-color: var(--navy);
+            border-right: 1px solid var(--lightest-navy);
+            padding: 30px 0;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            transition: var(--transition);
+        }
+
+        .sidebar-title {
+            padding: 0 25px 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--slate);
+            border-bottom: 1px solid var(--lightest-navy);
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            color: var(--light-slate);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: var(--green);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--light-navy);
+            color: var(--green);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+
+        .nav-links i {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            padding: 0 25px;
+        }
+
+        .social-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--slate);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-navy);
+            color: var(--light-slate);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--green);
+            color: var(--dark-navy);
+            transform: translateY(-3px);
+        }
+
+        main {
+            padding: 30px;
+            background-color: var(--navy);
+            overflow-y: auto;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .content-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--lightest-slate);
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), transparent);
+            border-radius: 3px;
+        }
+
+        .content-header p {
+            color: var(--slate);
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .blog-card {
+            background-color: var(--light-navy);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        .blog-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 15px;
+            color: var(--lightest-slate);
+            font-size: 22px;
+        }
+
+        .blog-content .author {
+            color: var(--green);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .blog-content p {
+            color: var(--slate);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, var(--light-navy), var(--dark-navy));
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: var(--green-tint);
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            color: var(--lightest-slate);
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            color: var(--green);
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer {
+            grid-column: 1 / 3;
+            background-color: var(--dark-navy);
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--lightest-navy);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            color: var(--slate);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--light-slate);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            color: var(--slate);
+            font-size: 14px;
+        }
+
+        /* Image Popup Styles */
+        .image-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .image-popup.active {
+            display: flex;
+        }
+
+        .popup-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            border: 2px solid var(--green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--green);
+            color: var(--dark-navy);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: var(--lightest-slate);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px auto 1fr;
+            }
+
+            header {
+                grid-column: 1;
+                position: sticky;
+                top: 0;
+            }
+
+            aside {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 280px;
+                height: calc(100vh - 80px);
+                z-index: 90;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            aside.active {
+                display: block;
+            }
+
+            main {
+                grid-column: 1;
+                padding: 20px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-btn {
+                display: block !important;
+                margin-left: auto;
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--green);
+                cursor: pointer;
+            }
+
+            .image-popup {
+                padding: 10px;
+            }
+
+            .popup-image {
+                max-height: 70vh;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-om"></i></div>
+                <div class="logo-text">RiseUpHindu</div>
+            </div>
+            <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <aside id="sidebar">
+            <h2 class="sidebar-title">Menu</h2>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blogs</a></li>
+                <li><a href="post.html" class="active"><i class="fas fa-image"></i> Posts</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/realiology.com"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="content-header fade-in">
+                <h1>Posts</h1>
+                <p>Explore our collection of visual posts highlighting key aspects of Sanatan Dharma.</p>
+            </div>
+
+            <div class="blog-grid">
+                <div class="blog-card fade-in delay-1">
+                    <img src="Post/Vaishnavism.png" alt="Vaishnavism" class="blog-img" data-image="Post/Vaishnavism.png">
+                    <div class="blog-content">
+                        <h3>#1 Vaishnavism</h3>
+                        <span class="author">By Vaishnava</span>
+                        <p>Discover the essence of Vaishnavism, a major tradition within Sanatan Dharma focusing on devotion to Lord Vishnu and his incarnations.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in delay-2">
+                    <img src="Post/Shaktism.png" alt="Shaktism" class="blog-img" data-image="Post/Shaktism.png">
+                    <div class="blog-content">
+                        <h3>#2 Shaktism</h3>
+                        <span class="author">By Shakta</span>
+                        <p>Learn about Shaktism, the worship of the Divine Mother, emphasizing the power and grace of Goddess Shakti.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in delay-3">
+                    <img src="Post/Shaivism.png" alt="Shaivism" class="blog-img" data-image="Post/Shaivism.png">
+                    <div class="blog-content">
+                        <h3>#3 Shaivism</h3>
+                        <span class="author">By Shaiva</span>
+                        <p>Explore Shaivism, the tradition centered on Lord Shiva, embodying meditation, austerity, and spiritual liberation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="quote-section fade-in delay-3">
+                <p class="quote-text">"The soul is neither born, nor does it die. It is not that having been, it again ceases to be. The soul is without birth, eternal, immortal, and ageless. It is not destroyed when the body is destroyed."</p>
+                <p class="quote-author">~ Bhagavad Gita, Chapter 2, Verse 20</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>RiseUpHindu - Exploring and Preserving Hindu Heritage</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <p class="copyright">© 2023 RiseUpHindu. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Image Popup -->
+        <div class="image-popup" id="imagePopup">
+            <div class="popup-content">
+                <img src="" alt="Popup Image" class="popup-image" id="popupImage">
+                <button class="close-btn" aria-label="Close popup"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+
+            function checkMobile() {
+                if (window.innerWidth <= 768) {
+                    menuBtn.style.display = 'block';
+                    sidebar.classList.remove('active');
+                } else {
+                    menuBtn.style.display = 'none';
+                    sidebar.classList.remove('active');
+                }
+            }
+
+            checkMobile();
+            window.addEventListener('resize', checkMobile);
+
+            menuBtn.addEventListener('click', function () {
+                sidebar.classList.toggle('active');
+                const icon = menuBtn.querySelector('i');
+                if (sidebar.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Add active class to nav links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Close sidebar on mobile after clicking a link
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        const icon = menuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Animation on scroll
+            const animatedElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+
+            // Image popup functionality
+            const imagePopup = document.getElementById('imagePopup');
+            const popupImage = document.getElementById('popupImage');
+            const closeBtn = document.querySelector('.close-btn');
+            const blogImages = document.querySelectorAll('.blog-img');
+
+            blogImages.forEach(image => {
+                image.addEventListener('click', function () {
+                    const src = this.getAttribute('data-image');
+                    popupImage.src = src;
+                    popupImage.alt = this.alt;
+                    imagePopup.classList.add('active');
+                });
+            });
+
+            closeBtn.addEventListener('click', function () {
+                imagePopup.classList.remove('active');
+            });
+
+            imagePopup.addEventListener('click', function (e) {
+                if (e.target === imagePopup) {
+                    imagePopup.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

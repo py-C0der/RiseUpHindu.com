@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseUpHindu - Exploring Hindu Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --dark-navy: #020c1b;
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #172a45;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --green-tint: rgba(100, 255, 218, 0.1);
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            grid-template-rows: 80px 1fr;
+            min-height: 100vh;
+        }
+
+        header {
+            grid-column: 1 / 3;
+            background-color: var(--dark-navy);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            background: linear-gradient(45deg, var(--green), var(--lightest-slate));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        aside {
+            background-color: var(--navy);
+            border-right: 1px solid var(--lightest-navy);
+            padding: 30px 0;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            transition: var(--transition);
+        }
+
+        .sidebar-title {
+            padding: 0 25px 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--slate);
+            border-bottom: 1px solid var(--lightest-navy);
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            color: var(--light-slate);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: var(--green);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--light-navy);
+            color: var(--green);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+
+        .nav-links i {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            padding: 0 25px;
+        }
+
+        .social-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--slate);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-navy);
+            color: var(--light-slate);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--green);
+            color: var(--dark-navy);
+            transform: translateY(-3px);
+        }
+
+        main {
+            padding: 30px;
+            background-color: var(--navy);
+            overflow-y: auto;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .content-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--lightest-slate);
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), transparent);
+            border-radius: 3px;
+        }
+
+        .content-header p {
+            color: var(--slate);
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-navy), var(--dark-navy));
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, var(--green-tint) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--green);
+        }
+
+        .hero-content p {
+            color: var(--light-slate);
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: transparent;
+            color: var(--green);
+            border: 1px solid var(--green);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--green-tint);
+            transform: translateY(-3px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .blog-card {
+            background-color: var(--light-navy);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            height: fit-content;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        .blog-img {
+            height: 180px;
+            background: linear-gradient(45deg, #64ffda, #0a192f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-navy);
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(10, 25, 47, 0.8));
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 15px;
+            color: var(--lightest-slate);
+            font-size: 22px;
+        }
+
+        .blog-content p {
+            color: var(--slate);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--green);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .read-more i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--lightest-slate);
+        }
+
+        .read-more:hover i {
+            transform: translateX(4px);
+        }
+
+        .scripture-section {
+            background-color: var(--light-navy);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .scripture-section h2 {
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .scripture-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .scripture-item {
+            background-color: var(--navy);
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+            border-left: 3px solid var(--green);
+        }
+
+        .scripture-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scripture-item h3 {
+            color: var(--lightest-slate);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .scripture-item p {
+            color: var(--slate);
+            font-size: 14px;
+        }
+
+        .festival-carousel {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .festival-carousel h2 {
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            background: linear-gradient(135deg, var(--light-navy), var(--dark-navy));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .swiper-slide h3 {
+            color: var(--green);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .swiper-slide p {
+            color: var(--light-slate);
+            max-width: 600px;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--slate);
+            opacity: 0.7;
+            width: 10px;
+            height: 10px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--green);
+            opacity: 1;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, var(--light-navy), var(--dark-navy));
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: var(--green-tint);
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            color: var(--lightest-slate);
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            color: var(--green);
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer {
+            grid-column: 1 / 3;
+            background-color: var(--dark-navy);
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--lightest-navy);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            color: var(--slate);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--light-slate);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            color: var(--slate);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px auto 1fr;
+            }
+
+            header {
+                grid-column: 1;
+                position: sticky;
+                top: 0;
+            }
+
+            aside {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 280px;
+                height: calc(100vh - 80px);
+                z-index: 90;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            aside.active {
+                display: block;
+            }
+
+            main {
+                grid-column: 1;
+                padding: 20px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-btn {
+                display: block !important;
+                margin-left: auto;
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--green);
+                cursor: pointer;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-om"></i></div>
+                <div class="logo-text">RiseUpHindu</div>
+            </div>
+            <button id="menuBtn" class="menu-btn" aria-label="Open menu">
+                <i class="fas fa-bars"> </i>
+            </button>
+        </header>
+
+        <aside id="sidebar">
+            <h2 class="sidebar-title">Menu</h2>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blogs</a></li>
+                <li><a href="post.html"><i class="fas fa-image"></i> Posts</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/realiology.com"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="content-header fade-in">
+                <h1>Home</h1>
+                <p>Exploring And Preserving Hindu Heritage.</p>
+            </div>
+
+            <section class="hero-section fade-in delay-1">
+                <div class="hero-content">
+                    <h2>Welcome to RiseUpHindu</h2>
+                    <p>Discover the timeless wisdom, vibrant culture, and spiritual richness of Sanatana Dharma. Our
+                        mission is to explore, preserve, and share the profound heritage of Hinduism with seekers around
+                        the world.</p>
+
+                </div>
+            </section>
+
+            <section class="blog-grid">
+                <div class="blog-card fade-in delay-1">
+                    <div class="blog-img">
+                        Sanatana Dharma
+                    </div>
+                    <div class="blog-content">
+                        <h3>Sanatana Dharma</h3>
+                        <p>Sanatana Dharma, often referred to as Hinduism, is one of the world's oldest and most complex
+                            religious traditions. It encompasses a wide range of beliefs, practices, and philosophies...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in delay-2">
+                    <div class="blog-img">
+                        Sampradayas
+                    </div>
+                    <div class="blog-content">
+                        <h3>Sampradayas of Hinduism</h3>
+                        <p>Hinduism is a diverse and ancient religion with various traditions and sects known as
+                            "sampradayas." These sampradayas represent different philosophical schools, devotional
+                            paths, and practices within Hinduism...</p>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in delay-3">
+                    <div class="blog-img">
+                        Festivals
+                    </div>
+                    <div class="blog-content">
+                        <h3>Hindu Festivals</h3>
+                        <p>Hindu festivals are vibrant celebrations that reflect the rich cultural and religious
+                            heritage of Hinduism. These festivals are marked by colorful rituals, music, dance,
+                            feasting, and spiritual observances...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scripture-section fade-in">
+                <h2>Sacred Scriptures</h2>
+                <p>Start Your journey step by step through these scriptures.</p>
+                <div class="scripture-list">
+                    <div class="scripture-item">
+                        <h3>1. B.O.S.S</h3>
+                        <p>Basic Of Sanatana Sanskriti</p>
+                        <a href="https://yoddha.store/product/basics-of-sanatan-sanskriti-hindi" class="read-more"
+                            target="_blank">BUY <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="scripture-item">
+                        <h3>2. Vedic Dincharya</h3>
+                        <p>Daily routines and practices from Vedic traditions</p>
+                        <a href="https://yoddha.store/product/vaidik-dincharya-hindi" class="read-more"
+                            target="_blank">BUY <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="scripture-item">
+                        <h3>3. Brahmacharya</h3>
+                        <p>The path of celibacy and self-discipline</p>
+                        <a href="https://yoddha.store/product/brahmacharya-hindi" class="read-more" target="_blank">BUY
+                            <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="scripture-item">
+                        <h3>4. Ramayana</h3>
+                        <p>The epic story of Lord Rama's journey</p>
+                        <a href="https://amzn.in/d/3RKpmKn" class="read-more" target="_blank">BUY <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="scripture-item">
+                        <h3>5. Bhagavad Gita</h3>
+                        <p>The divine song and philosophical guide</p>
+                        <a href="https://amzn.in/d/3RKpmKn" class="read-more" target="_blank">BUY <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="scripture-item">
+                        <h3>6. Mahabharata</h3>
+                        <p>The great epic of ancient India</p>
+                        <a href="https://amzn.in/d/3RKpmKn" class="read-more" target="_blank">BUY <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="festival-carousel fade-in">
+                <h2>Major Hindu Festivals</h2>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <h3>Diwali</h3>
+                            <p>Known as the Festival of Lights, Diwali celebrates the victory of light over darkness and
+                                good over evil.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Holi</h3>
+                            <p>The Festival of Colors, Holi is a joyous celebration that marks the arrival of spring.
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Navaratri/Durga Puja</h3>
+                            <p>This nine-night festival honors the goddess Durga and her victory over the buffalo demon
+                                Mahishasura.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Vijayadashami (Dussehra)</h3>
+                            <p>Vijayadashami celebrates the victory of Lord Rama over the demon king Ravana and the
+                                triumph of good over evil.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Ganesh Chaturthi</h3>
+                            <p>This festival celebrates the birth of Lord Ganesha, the elephant-headed god of wisdom
+                                and prosperity.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Janmashtami</h3>
+                            <p>Janmashtami marks the birth of Lord Krishna, an avatar of Vishnu, and is celebrated with
+                                devotional singing and fasting.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Rama Navami</h3>
+                            <p>This festival celebrates the birth of Lord Rama, the seventh avatar of Vishnu, and is
+                                observed with prayers and recitations from the Ramayana.</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <h3>Maha Shivaratri</h3>
+                            <p>Maha Shivaratri is a night dedicated to Lord Shiva, marked by fasting, meditation, and
+                                night-long vigils.</p>
+                        </div>
+
+                        
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+
+            <section class="quote-section fade-in">
+                <p class="quote-text">" All of them—as they surrender unto Me—I reward accordingly.
+                    Everyone follows My path in all respects, O son of Pṛthā. "</p>
+                <p class="quote-author">~ Bhagavad Gita, Chapter 4, Verse 11</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>RiseUpHindu - Exploring and Preserving Hindu Heritage</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="donate.html">Donate</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <p class="copyright">© 2023 RiseUpHindu. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Swiper for festival carousel
+            const swiper = new Swiper('.swiper', {
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 5000,
+                },
+            });
+
+            // Mobile menu functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+
+            function checkMobile() {
+                if (window.innerWidth <= 768) {
+                    menuBtn.style.display = 'block';     // show the hamburger
+                    sidebar.classList.remove('active');  // ensure it's closed initially
+                } else {
+                    menuBtn.style.display = 'none';
+                    sidebar.classList.remove('active');  // ensure desktop has no leftover state
+                }
+            }
+
+            checkMobile();
+            window.addEventListener('resize', checkMobile);
+
+            menuBtn.addEventListener('click', function () {
+                sidebar.classList.toggle('active');
+            });
+
+            // Add active class to nav links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Close sidebar on mobile after clicking a link
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+
+            // Animation on scroll
+            const animatedElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>

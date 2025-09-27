@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseUpHindu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a192f;
+            color: #e6f1ff;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 70px 1fr;
+            min-height: 100vh;
+        }
+
+        header {
+            grid-column: 1 / 3;
+            background-color: #020c1b;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 24px;
+            color: #64ffda;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e6f1ff;
+        }
+
+        aside {
+            background-color: #0a192f;
+            border-right: 1px solid #172a45;
+            padding: 30px 0;
+        }
+
+        .sidebar-title {
+            padding: 0 25px 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8892b0;
+            border-bottom: 1px solid #172a45;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            color: #ccd6f6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #112240;
+            color: #64ffda;
+        }
+
+        .nav-links i {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            padding: 0 25px;
+        }
+
+        .social-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #8892b0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #112240;
+            color: #ccd6f6;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #64ffda;
+            color: #020c1b;
+            transform: translateY(-3px);
+        }
+
+        main {
+            padding: 30px;
+            background-color: #0a192f;
+            overflow-y: auto;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #ccd6f6;
+        }
+
+        .content-header p {
+            color: #8892b0;
+            max-width: 600px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .blog-card {
+            background-color: #112240;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-img {
+            height: 180px;
+            background: linear-gradient(45deg, #64ffda, #0a192f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #020c1b;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 10px;
+            color: #ccd6f6;
+        }
+
+        .blog-content p {
+            color: #8892b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                grid-column: 1;
+            }
+
+            aside {
+                display: none;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-om"></i></div>
+                <div class="logo-text">RiseUpHindu</div>
+            </div>
+            <!-- Hamburger menu button for mobile -->
+            <button id="menuBtn" class="menu-btn" aria-label="Open menu"
+                style="margin-left:auto; background:none; border:none; font-size:28px; color:#64ffda; cursor:pointer; display:none;">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <aside id="sidebar">
+            <h2 class="sidebar-title">Menu</h2>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blogs</a></li>
+                <li><a href="#"><i class="fas fa-image"></i> Gallery</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="content-header">
+                <h1>Home</h1>
+                <p>Exploring And Preserving Hindu Heritage.</p>
+            </div>
+            <div class="blog-card">
+                <div class="blog-card">
+                    <p>
+                        Sanatana Dharma, often referred to as Hinduism, is one of the world's oldest and most
+                        complex religious traditions. It encompasses a wide range of beliefs, practices, and
+                        philosophies. Hinduism celebrates unity in diversity, encouraging respect for all paths to the
+                        divine. Its vibrant festivals, timeless rituals, and profound teachings inspire millions to seek
+                        truth, harmony, and inner peace. The sacred scriptures—like the Vedas, Upanishads, Bhagavad
+                        Gita, and Ramayana—offer wisdom on living a meaningful life, fostering compassion, and realizing
+                        one's highest potential. Discover the beauty of Hindu heritage and let its spiritual richness
+                        uplift your journey.
+                    </p>
+                </div>
+                <br>
+                <div class="blog-card">
+                    <h1>
+                        Sampradayas of Hinduism
+                    </h1>
+                    <p>
+                        Hinduism is a diverse and ancient religion with various traditions and sects known as
+                        "sampradayas." These sampradayas represent different philosophical schools, devotional paths,
+                        and
+                        practices within Hinduism. Here are some of the major sampradayas:
+                        <br> 1. Vaishnavism: This sampradaya is devoted to the worship of Lord Vishnu and his avatars,
+                        such as
+                        Rama and Krishna. It emphasizes bhakti (devotion) and the belief in Vishnu as the supreme deity.
+
+                        <br>2. Shaivism: Followers of Shaivism primarily worship Lord Shiva as the supreme god. This
+                        sampradaya
+                        includes various sects, such as the Shaiva Siddhanta and Kashmir Shaivism, each with its own
+                        philosophical interpretations.
+
+                        <br>3. Shaktism: Shaktism focuses on the worship of the Divine Mother or Goddess (Shakti) in her
+                        many
+                        forms, such as Durga, Kali, and Lakshmi. It emphasizes the feminine aspect of divinity and often
+                        incorporates tantric practices.
+
+                        <br>4. Smartism: Smartism is a more inclusive sampradaya that recognizes multiple deities,
+                        including
+                        Vishnu, Shiva, Shakti, Ganesha, and Surya. It promotes the idea that all deities are
+                        manifestations
+                        of the same ultimate reality (Brahman).
+
+                        <br>5. Advaita Vedanta: While not a devotional sampradaya, Advaita Vedanta is a significant
+                        philosophical
+                        school within Hinduism. It teaches non-dualism, asserting that the individual soul (Atman) is
+                        identical to the ultimate reality (Brahman).
+
+                        <br>These sampradayas often have their own rituals, festivals, temples, and spiritual leaders.
+                        Despite
+                        their differences, they all contribute to the rich tapestry of Hindu religious life and
+                        philosophy.
+                    </p>
+                </div>
+                <div class="blog-card">
+                    <h1>
+                        Hindu Festivals
+                    </h1>
+                    <p>
+                        Hindu festivals are vibrant celebrations that reflect the rich cultural and religious heritage
+                        of
+                        Hinduism. These festivals are marked by colorful rituals, music, dance, feasting, and spiritual
+                        observances. Here are some of the most significant Hindu festivals:
+
+                        <br>1. Diwali (Deepavali): Known as the Festival of Lights, Diwali celebrates the victory of
+                        light over
+                        darkness and good over evil. It involves lighting oil lamps, bursting fireworks, exchanging
+                        gifts,
+                        and enjoying festive meals.
+
+                        <br>2. Holi: The Festival of Colors, Holi is a joyous celebration that marks the arrival of
+                        spring.
+                        Participants throw colored powders and water at each other, dance to music, and share sweets.
+
+                        <br>3. Navaratri/Durga Puja: This nine-night festival honors the goddess Durga and her victory
+                        over
+                        the buffalo demon Mahishasura. It includes fasting, dancing (Garba and Dandiya), and elaborate
+                        worship ceremonies.
+
+                        <br>4. Raksha Bandhan: This festival celebrates the bond between brothers and sisters. Sisters
+                        tie a
+                        protective thread (rakhi) around their brothers' wrists, and brothers give gifts in return.
+
+                        <br>5. Ganesh Chaturthi: This festival marks the birth of Lord Ganesha, the elephant-headed
+                        god of
+                        wisdom and prosperity. Devotees create clay idols of Ganesha, offer prayers, and immerse the
+                        idols
+                        in water after several days.
+
+                        <br>6. Pongal/Makar Sankranti: Celebrated in South India as Pongal and in other parts as Makar
+                        Sankranti,
+                        this harvest festival marks the transition of the sun into the zodiac sign of Capricorn.
+                        People
+                        prepare special dishes made from newly harvested rice and offer thanks for a bountiful harvest.
+
+                        <br>7. Janmashtami: This festival celebrates the birth of Lord Krishna. Devotees fast,
+                        sing devotional songs, and reenact episodes from Krishna's life.
+
+                        <br>These festivals not only hold religious significance but also foster community bonding,
+                        cultural
+                        expression, and a sense of joy and gratitude among participants.
+                    </p>
+                </div>
+                <div class="blog-card">
+                    <h1>
+                        Scriptures
+                    </h1>
+                    <p>Start Your journey step by step thourgh these scriptures.</p>
+                    <div>
+                        <ul>
+                            <li>1. B.O.S.S</li>
+
+                            <li>2. Vedic Dincharya</li>
+                            <li>3. Brahmacharya</li>
+                            <li>4. Ramayana</li>
+                            <li>5. Bhagavad Gita</li>
+                            <li>6. Mahabharata</li>
+                            <li>7. Puranas</li>
+                            <li>8. Smritis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="blog-card"></div>
+
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple JavaScript to toggle mobile menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Hamburger menu for mobile
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            function checkMobile() {
+                if (window.innerWidth <= 768) {
+                    menuBtn.style.display = 'block';
+                    sidebar.style.display = 'none';
+                } else {
+                    menuBtn.style.display = 'none';
+                    sidebar.style.display = 'block';
+                }
+            }
+            checkMobile();
+            window.addEventListener('resize', checkMobile);
+
+            menuBtn.addEventListener('click', function () {
+                if (sidebar.style.display === 'block') {
+                    sidebar.style.display = 'none';
+                } else {
+                    sidebar.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
